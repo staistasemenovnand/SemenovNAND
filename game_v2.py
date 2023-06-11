@@ -15,11 +15,17 @@ def random_predict(number: int = 1) -> int:
         int: Число попыток
     """
     count = 0
-
+    down_border = 1 #нижняя граница диапазона угадывания
+    up_border = 101 #верхняя граница диапазона угадыавния
     while True:
         count += 1
-        predict_number = np.random.randint(1, 101)  # предполагаемое число
-        if number == predict_number:
+        predict_number = np.random.randint(down_border,up_border)  # предполагаемое число
+        # будем сужать границы диапазона угадывания 
+        if number<predict_number:
+            up_border = predict_number
+        elif number>predict_number:
+            down_border = predict_number
+        else: 
             break  # выход из цикла если угадали
     return count
 
