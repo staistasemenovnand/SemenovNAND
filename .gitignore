@@ -1,3 +1,4 @@
 *.csv
 *venv/
 *US_text.txt
+*us_cities.pickle
